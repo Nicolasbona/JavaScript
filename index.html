@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS TEST</title>
+</head>
+<body>
+    <h1 id="outputtext"></h1>
+    <div>
+        <h1>Calcular medio de transporte:</h1>
+        <form onsubmit="f()">
+            <p> Ingrese una distancia para determinar el tipo de vehiculo a utilizar:  </p>
+            <input type="text" id="vehicle" placeholder="Enter text" autocapitalize="off" />
+            <input type="submit" id="submitbutton">
+        </form>
+    </div>
+
+    <div>
+        <h1>Mayor elemento del array:</h1>
+        <form onsubmit="g()">
+            <p> ingrese una lista de numeros separados por coma para evaluar el mayor:  </p>
+            <input type="text" id="numbers" placeholder="Enter text" autocapitalize="off" />
+            <input type="submit" id="submitbutton">
+        </form>
+    </div>
+    <script type="text/javascript">
+    function f() {
+        var t = document.getElementById("vehicle").value;
+        if(Number(t)>0 & Number(t)<1000){
+            alert("la mejor opcion de transporte es a pie");
+        }
+        else if(Number(t)>1000 & Number(t)<10000){
+            alert("la mejor opcion de transporte es la bicicleta");
+        }
+        else if(Number(t)>10000 & Number(t)<30000 ){
+            alert("la mejor opcion de transporte es el colectivo");
+        }
+        else if(Number(t)>30000  & Number(t)<100000){
+            alert("la mejor opcion de transporte es el auto");
+        }
+        else if(Number(t)>100000){
+            alert("la mejor opcion de transporte es el avion");
+        }
+        else{
+            alert("El valor ingresado es incorrecto");
+        }
+    }
+
+    function g(){
+        var j = document.getElementById("numbers").value;
+        var arr =j.split(",");
+        arr.forEach(function(element,index) {
+            if(isNaN(element))
+            {
+              var elemToRemove = arr.indexOf(index);
+              arr.splice(index, 1);
+            }
+        });
+        if (arr.length >=1){
+        var max = getMaxOfArray(arr);
+        alert("El maximimo numero es "+max);
+        } else{
+            alert("No se ingreso ningun numero valido separado por coma");
+        }
+    }
+
+    function getMaxOfArray(numArray) {
+        return Math.max.apply(null, numArray);
+    }
+
+    
+    </script>
+</body>
+</html>
